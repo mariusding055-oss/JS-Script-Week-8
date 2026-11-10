@@ -1,36 +1,38 @@
-<html lang="eng">
 
-<link rel="stylesheet" href="style.css"
-
+<html lang="en">
+<head>
+   
+    <title>Greeting Changer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-    <button id = "gabriel">
-Click to Duplicate
+    <button id="gabriel">Click to Greet</button>
 
-    </button>
+    <div id="rhino">hellloo</div>
 
-<div id="rhino"> 
-    hellloo
-</div>
+    <script>
+        const greetings = ["Ni Hao", "Konnichiwa", "Hola"];
 
-<body>
+        function randomFrom(list) {
+            return list[Math.floor(Math.random() * list.length)];
+        }
 
-<script>
-    function big() { 
-rhino.textContext = "gaga"
-rhino.style.backgroundColor = 'lightblue'
-rhino.style.fontSize=Math.random()*100 + "px"
-rhino.classList.toggle('lol')
-}
-big () 
+        function randomColor() {
+            return `hsl(${Math.random() * 360}, 70%, 75%)`;
+        }
 
-gabriel.addEventListener('click', big)
+        function big() {
+            rhino.textContent = randomFrom(greetings);
+            rhino.style.setProperty("--bg", randomColor());
+            rhino.style.setProperty("--fg", randomColor());
+            rhino.style.setProperty("--size", 20 + Math.random() * 80 + "px");
+            rhino.classList.toggle("lol");
+        }
 
-// setTimeout (big, 1000)
-// setInterval (big, 100)
+        big();
+        gabriel.addEventListener("click", big);
+    </script>
 
-</script>
- </body>
 </body>
-
 </html>
